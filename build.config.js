@@ -13,8 +13,14 @@ export default {
             'src/templates/file-explorer.ejs',
         ],
     },
-    output: {
-        directory: 'dist',
-        minify: true,
-    },
+    output: [
+        {
+            path: 'dist/file-explorer.debug.php',
+            minify: false,
+        },
+        {
+            path: 'dist/file-explorer.php',
+            minify: true,
+        },
+    ],
 }
