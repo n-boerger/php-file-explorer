@@ -1,0 +1,68 @@
+<?php
+<% php.forEach(function(php) { %>
+/* <%- php.file %> */
+<%- php.contents %>
+<% }); %>
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Explorer</title>
+    <link rel="icon" type="image/svg+xml" href="?favicon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://rawcdn.githack.com/dmhendricks/file-icon-vectors/master/dist/file-icon-high-contrast.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" data-name="vs/editor/editor.main" href="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.29.1/min/vs/editor/editor.main.min.css">
+    <% css.forEach(function(css) { %>
+        <!-- <%- css.file %> -->
+        <style><%- css.contents %></style>
+    <% }); %>
+</head>
+<body>
+    <nav>
+
+    </nav>
+    <div class="window-inner">
+        <div class="file-explorer">
+            <nav class="file-explorer-nav">
+                <button type="button" data-action="menu"><i class="bi bi-list"></i></button>
+                <button type="button" data-action="history-prev"><i class="bi bi-arrow-left"></i></button>
+                <button type="button" data-action="history-next"><i class="bi bi-arrow-right"></i></button>
+                <button type="button" data-action="home"><i class="bi bi-house"></i></button>
+                <button type="button" data-action="reload"><i class="bi bi-arrow-repeat"></i></button>
+                <button type="button" data-action="new-file"><i class="bi bi-file-plus"></i></button>
+                <button type="button" data-action="new-folder"><i class="bi bi-folder-plus"></i></button>
+            </nav>
+            <div class="file-list">
+
+            </div>
+        </div>
+        <div class="file-preview">
+            <nav class="file-previews-nav">
+
+            </nav>
+            <div class="file-previews">
+
+            </div>
+            <div class="terminal">
+                <div class="terminal-result"></div>
+        
+                <form class="terminal-input">
+                    <input class="terminal-dir" type="hidden" name="dir" value="<?= getcwd() ?>">
+                    <input type="text" name="command" placeholder="Enter command...">
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.29.1/min/vs/loader.min.js"></script>
+    <% js.forEach(function(js) { %>
+        <!-- <%- js.file %> -->
+        <script><%- js.contents %></script>
+    <% }); %>
+</body>
+</html>
