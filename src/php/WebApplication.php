@@ -8,7 +8,7 @@ use FolderController;
 use FileController;
 use CommandController;
 
-class WebApplication extends Application {
+class WebApplication implements Application {
 
     public function run(): void {
         $router = $this->router();

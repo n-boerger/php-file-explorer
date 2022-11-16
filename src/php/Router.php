@@ -60,10 +60,7 @@ class Router {
     }
 
     private function buildRoute(string $route): string {
-        $parts = array_merge(
-            array_filter(explode('/', self::base())),
-            array_filter(explode('/', $route))
-        );
+        $parts = array_filter(explode('/', $route));
         
         $parts = array_map(array: $parts, callback: function($part) {
             if(!preg_match('/^\{.+\}$/', $part)) return $part;

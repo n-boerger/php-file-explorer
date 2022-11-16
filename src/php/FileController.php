@@ -33,9 +33,9 @@ class FileController extends Controller {
 
         if($success === false) $this->response()->status(500);
 
-        die(json_encode([
-            'path'  => $path,
-        ]));
+        $this->response()->json([
+            'path'      => $path,
+        ]);
     }
 
     public function downloadFile() {

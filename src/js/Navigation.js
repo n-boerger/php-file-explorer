@@ -7,8 +7,8 @@ import API from "./API";
 export default class Navigation extends EventBus {
 
     #paths = {
-        home: `<?= $basePath ?>`,
-        current: `<?= $basePath ?>`,
+        home: `<?= __DIR__ ?>`,
+        current: `<?= __DIR__ ?>`,
     }
 
     #navbarRef = null;

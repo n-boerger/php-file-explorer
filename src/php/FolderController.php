@@ -9,13 +9,14 @@ class FolderController extends Controller {
             'folder'    => 'required',
         ]);
 
-        $path = realpath($this->request()->get('folder')) . DIRECTORY_SEPARATOR;
+        $path = realpath($this->request()->get('folder'));
 
         if(!is_dir($path)) return $this->response()->status(404);
 
         $contents = [];
 
-        foreach(new FilesystemIterator($path, FilesystemIterator::SKIP_DOTS) as $fileInfo) {
+        foreach(new DirectoryIterator($path) as $fileInfo) {
+            if($fileInfo->getRealPath() === $path) continue;
             if($fileInfo->getRealPath() === __FILE__) continue;
 
             $contents[] = [
@@ -31,7 +32,7 @@ class FolderController extends Controller {
         });
 
         $this->response()->json([
-            'path'      => $path,
+            'path'      => $path . DIRECTORY_SEPARATOR,
             'contents'  => array_values($contents),
         ]);
     }

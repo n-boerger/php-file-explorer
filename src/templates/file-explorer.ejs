@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>File Explorer</title>
-    <link rel="icon" type="image/svg+xml" href="?favicon">
+    <link rel="icon" type="image/svg+xml" href="?route=/favicon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
@@ -53,7 +53,6 @@
                 <div class="terminal-result"></div>
         
                 <form class="terminal-input">
-                    <input class="terminal-dir" type="hidden" name="dir" value="<?= getcwd() ?>">
                     <input type="text" name="command" placeholder="Enter command...">
                 </form>
             </div>

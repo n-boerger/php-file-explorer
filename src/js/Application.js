@@ -16,7 +16,6 @@ export default class Application {
         terminal: document.querySelector('.terminal'),
         terminalResult: document.querySelector('.terminal-result'),
         terminalInput: document.querySelector('.terminal-input'),
-        terminalDir: document.querySelector('.terminal-dir'),
     }
 
     #navigation = null;
@@ -28,7 +27,7 @@ export default class Application {
     constructor() {
         this.#api = new API();
         this.#navigation = new Navigation(this.#doc.fileExplorerNav, this.#doc.fileList);
-        this.#terminal = new Terminal(this.#doc.terminal, this.#doc.terminalResult, this.#doc.terminalInput, this.#doc.terminalDir);
+        this.#terminal = new Terminal(this.#doc.terminal, this.#doc.terminalResult, this.#doc.terminalInput);
         
         this.#navigation.on('read-file', file => this.#readFile(file));
         this.#navigation.on('toggle-terminal', () => this.#terminal.toggle());

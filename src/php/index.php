@@ -2,5 +2,7 @@
 
 use WebApplication;
 
-$application = new WebApplication();
-$application->run();
+if(isset($_GET['route'])) {
+    $application = new WebApplication();
+    $application->run();
+}
